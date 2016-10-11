@@ -1,3 +1,6 @@
+/*I affirm that all code given below was written solely by me, Nicholas Little,
+and that any help I received adhered to the rules stated for this exam.*/
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -26,8 +29,10 @@ namespace Exam1 // NAMESPACE
 		vector<Wheel> wheels;
 
 	public:
+		Vehicle() {};
 		Vehicle(string color) {
 			// Complete the implementation
+			_color = color; //set inital color for Vehicle
 		}
 		virtual void Description() = 0;
 	};
@@ -35,21 +40,58 @@ namespace Exam1 // NAMESPACE
 	// STEP 2:  Define the RaceCar, Sedan, and Pickup classes as described
 	// in the UML diagram.   For this test, you do not need to separate
 	// the class implementation into a cpp file.
-	class RaceCar {
+	class RaceCar : public Vehicle {
 		//Top speed: 250mph
 		//Wheel radius: 305mm
-
+	public:
+		RaceCar(string color) {
+			_color = color;//set inital color for RaceCar
+			_topspeed = 250;//set top speed for RaceCar
+			for (int i = 0; i <= 4; i++) {//loop thourgh wheels
+				wheels[i] = Wheel(305);//assign 4 wheels with radius 305mm
+			}
+		}
+		void Description() {
+			cout << "I am a speedy race car that can go " << _topspeed << ". Just try to keep up!" << endl;//over confident race car description
+		}
 	};
 
-	class Sedan {
+	class Sedan : public Vehicle {
 		//Top speed: 95mph
 		//Wheel radius: 381mm
-
+	protected:
+		int number_of_seats;
+	public:
+		Sedan(string color, int seats) {
+			_color = color;//set inital color for Sedan
+			_topspeed = 95;//set top speed for Sedan
+			number_of_seats = seats;//set number of seats for Sedan
+			for (int i = 0; i <= 4; i++) {//loop thourgh wheels
+				wheels[i] = Wheel(381);//assign 4 wheels with radius 381mm
+			}
+		}
+		void Description() {
+			cout << "I am a practical sedan that can carry " << number_of_seats << " at a goopd pace of " << _topspeed <<". How practical!"<< endl;//description of non descript sedan
+		}
 	};
 
-	class Pickup {
+	class Pickup : public Vehicle{
 		//Top speed: 85mph
 		//Wheel radius: 432mm
+	protected:
+		int hauling_capacity;//sq. ft of bed of truck
+	public:
+		Pickup(string color, int maxCap) {
+			_color = color;//set initial color for Pickup
+			_topspeed = 85;//set top speed for Pickup
+			hauling_capacity = maxCap;//set hauling capacity for Pickup
+			for (int i = 0; i <= 4; i++) {//loop thourgh wheels
+				wheels[i] = Wheel(432);//assign 4 wheels with radius 432mm
+			}
+		}
+		void Description() {
+			cout << "I am a hard working truck that can carry " << hauling_capacity << " sq. feet of anything and get you there at a speed of " << _topspeed << ". Hey thats not bad for the work I'm doing." << endl;//a solid description of a pickup
+		}
 
 	};
 }
