@@ -50,7 +50,7 @@ namespace Exam1 // NAMESPACE
 			wheels.assign(4, Wheel(305));//assign 4 wheels with radius 305mm
 		}
 		void Description() {
-			cout << "I am a speedy race car that can go " << _topspeed << ". Just try to keep up!" << endl;//over confident race car description
+			cout << "I am a speedy race car that can go " << _topspeed << "mph. Just try to keep up!" << endl;//over confident race car description
 		}
 	};
 
@@ -67,7 +67,7 @@ namespace Exam1 // NAMESPACE
 			wheels.assign(4, Wheel(381));//assign 4 wheels with radius 381mm
 		}
 		void Description() {
-			cout << "I am a practical sedan that can carry " << number_of_seats << " people at a good pace of " << _topspeed <<". How practical!"<< endl;//description of non descript sedan
+			cout << "I am a practical sedan that can carry " << number_of_seats << " people at a good pace of " << _topspeed <<"mph. How practical!"<< endl;//description of non descript sedan
 		}
 	};
 
@@ -84,7 +84,7 @@ namespace Exam1 // NAMESPACE
 			wheels.assign(4, Wheel(432));//assign 4 wheels with radius 432mm
 		}
 		void Description() {
-			cout << "I am a hard working truck that can carry " << hauling_capacity << " sq. feet of anything and get you there at a speed of " << _topspeed << ". Hey thats not bad for the work I'm doing." << endl;//a solid description of a pickup
+			cout << "I am a hard working truck that can carry " << hauling_capacity << " sq. feet of anything and get you there at a speed of " << _topspeed << "mph. Hey thats not bad for the work I'm doing." << endl;//a solid description of a pickup
 		}
 
 	};
@@ -97,9 +97,9 @@ int main()
 
 	// STEP 3: Assign ONE RaceCar, ONE Sedan, AND ONE Pickup object to each of the elements 
 	// in the Garage array.  Remember the classes are defined in the namespace Exam1.
-	Garage[0] = &Exam1::RaceCar("red");
-	Garage[1] = &Exam1::Pickup("black", 500);
-	Garage[2] = &Exam1::Sedan("blue", 5);
+	Garage[0] = &Exam1::RaceCar("red");//assign instance of RaceCar to Garage[0]
+	Garage[1] = &Exam1::Pickup("black", 500);//assign instance of Pickup to Garage[1]
+	Garage[2] = &Exam1::Sedan("blue", 5);//assign instance of Sedan to Garage[2]
 	for (int i = 0; i < 3; ++i)
 	{
 		// The method Description() should display an output like 
