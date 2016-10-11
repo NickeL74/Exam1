@@ -47,9 +47,7 @@ namespace Exam1 // NAMESPACE
 		RaceCar(string color) {
 			_color = color;//set inital color for RaceCar
 			_topspeed = 250;//set top speed for RaceCar
-			for (int i = 0; i <= 4; i++) {//loop thourgh wheels
-				wheels[i] = Wheel(305);//assign 4 wheels with radius 305mm
-			}
+			wheels.assign(4, Wheel(305));//assign 4 wheels with radius 305mm
 		}
 		void Description() {
 			cout << "I am a speedy race car that can go " << _topspeed << ". Just try to keep up!" << endl;//over confident race car description
@@ -66,12 +64,10 @@ namespace Exam1 // NAMESPACE
 			_color = color;//set inital color for Sedan
 			_topspeed = 95;//set top speed for Sedan
 			number_of_seats = seats;//set number of seats for Sedan
-			for (int i = 0; i <= 4; i++) {//loop thourgh wheels
-				wheels[i] = Wheel(381);//assign 4 wheels with radius 381mm
-			}
+			wheels.assign(4, Wheel(381));//assign 4 wheels with radius 381mm
 		}
 		void Description() {
-			cout << "I am a practical sedan that can carry " << number_of_seats << " at a goopd pace of " << _topspeed <<". How practical!"<< endl;//description of non descript sedan
+			cout << "I am a practical sedan that can carry " << number_of_seats << " people at a good pace of " << _topspeed <<". How practical!"<< endl;//description of non descript sedan
 		}
 	};
 
@@ -85,9 +81,7 @@ namespace Exam1 // NAMESPACE
 			_color = color;//set initial color for Pickup
 			_topspeed = 85;//set top speed for Pickup
 			hauling_capacity = maxCap;//set hauling capacity for Pickup
-			for (int i = 0; i <= 4; i++) {//loop thourgh wheels
-				wheels[i] = Wheel(432);//assign 4 wheels with radius 432mm
-			}
+			wheels.assign(4, Wheel(432));//assign 4 wheels with radius 432mm
 		}
 		void Description() {
 			cout << "I am a hard working truck that can carry " << hauling_capacity << " sq. feet of anything and get you there at a speed of " << _topspeed << ". Hey thats not bad for the work I'm doing." << endl;//a solid description of a pickup
@@ -103,10 +97,9 @@ int main()
 
 	// STEP 3: Assign ONE RaceCar, ONE Sedan, AND ONE Pickup object to each of the elements 
 	// in the Garage array.  Remember the classes are defined in the namespace Exam1.
-	//Garage[0] = ???
-	//Garage[1] = ???
-	//Garage[2] = ???
-
+	Garage[0] = &Exam1::RaceCar("red");
+	Garage[1] = &Exam1::Pickup("black", 500);
+	Garage[2] = &Exam1::Sedan("blue", 5);
 	for (int i = 0; i < 3; ++i)
 	{
 		// The method Description() should display an output like 
